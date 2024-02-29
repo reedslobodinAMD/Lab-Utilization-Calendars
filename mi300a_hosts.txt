@@ -1,0 +1,6 @@
+sh5-126-b3-1.aus.dcgpu
+pp-128-a6-1.aus.dcgpu
+pp-128-b5-4.aus.dcgpu
+pp-126-032b.aus.dcgpu
+ppac-1e707-a05-6.mkm.dcgpu
+ppac-1e707-a03-1.mkm.dcgpu
