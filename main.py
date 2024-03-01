@@ -10,7 +10,7 @@ def create_calendar(system_event_list):
     style.hour_height = hour_height
 
     now = datetime.now(pytz.timezone('US/Pacific'))
-    timeframe_days_ago = str(now.replace(day=now.day - timeframe).date())
+    timeframe_days_ago = str((now - timedelta(days=timeframe)).date())
     now = str(now.date())
     hostname = system_event_list.hostname
     config = CalendarConfig(
@@ -39,6 +39,7 @@ def main():
     event_lists = []
     #get_lucid2_job_events(event_lists)
     get_lucid2_job_events(event_lists)
+    get_conductor_reservation_events(event_lists)
     for system_event_list in event_lists:
         create_calendar(system_event_list)
 

@@ -22,48 +22,34 @@ class SystemEventList:
 def utc_to_pacific(utc_datetime):
     return utc_datetime.replace(tzinfo=timezone.utc).astimezone(pytz.timezone('US/Pacific'))
 
-def create_multi_day_event(title, start, end):
-    event_list = []
-    mid_start = start
-    mid_end = mid_start.replace(hour=23,minute=59,second=59,microsecond=999)
+def create_multi_day_event(title, start, end, event_lists, sut_name):
+    mid_end = start.replace(hour=23,minute=59,second=59,microsecond=999000)
 
-    while mid_end.date() != end.date():
-        timedelta = (mid_end-mid_start).total_seconds()
-        if timedelta >= min_calendar_time_resolution:
-            mid_event = Event(title=title, day=mid_start.date(), start=mid_start.time(), end=mid_end.time())
-            event_list.append(mid_event)
+    print("start: " + str(start) + "    mid end: " + str(mid_end))
+    print("mid start: " + str(mid_end+timedelta(milliseconds=2)) + "    end: " + str(end))
 
-        mid_start = mid_start.replace(day=mid_start.date().day+1, hour=0,minute=0,second=0,microsecond=1)
-        mid_end = mid_start.replace(hour=23,minute=59,second=59,microsecond=999)
+    create_event(title, start, mid_end, event_lists, sut_name)
+    create_event(title, mid_end+timedelta(milliseconds=2), end, event_lists, sut_name)
 
-    mid_end = mid_end.replace(hour=end.time().hour,
-                                minute = end.time().minute,
-                                second = end.time().second,
-                                microsecond = end.time().microsecond)
-    timedelta = (mid_end-mid_start).total_seconds()
-    if timedelta >= min_calendar_time_resolution:
-        mid_event = Event(title=title, day=mid_start.date(), start=mid_start.time(), end=mid_end.time())
-        event_list.append(mid_event)
-    return event_list
 
-def create_event(title, start, end):
-    start = utc_to_pacific(start)
-    end = utc_to_pacific(end)
+def create_event(title, start, end, event_lists, sut_name):
 
     timedelta = (end-start).total_seconds()
     if timedelta < min_calendar_time_resolution:
-        return None
+        return
     elif start.date() != end.date():
-        return create_multi_day_event(title, start, end)
-    return Event(title=title, day=start.date(), start=start.time(), end=end.time())
+        create_multi_day_event(title, start, end, event_lists, sut_name)
+    event = Event(title=title, day=start.date(), start=start.time(), end=end.time())
+    event_lists_add_event(event_lists, event, sut_name)
 
 def timeframe_days_ago():
     now = datetime.now(timezone.utc)
-    return now.replace(day=now.day - timeframe - 1)
+    return now - timedelta(days=(timeframe))
 
 
 def event_lists_add_event(event_lists, event, sut_name):
     if event == None:
+        print("\n\n\n\nLSADJLSKDJFKLSJDFLKJSDKLFJLKSDJF\n\n\n\n")
         return
 
     #print(sut_name)

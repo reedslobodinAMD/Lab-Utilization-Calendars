@@ -18,7 +18,7 @@ def get_mi300_hosts():
 
     return mi300a_hosts + mi300x_hosts
 
-def parse_lucid2_job(job):
+def parse_lucid2_job(job, event_lists, sut_name):
     title = job["run_label"]
 
     for message in job["conductor_metadata"]["metadata"]:
@@ -27,11 +27,9 @@ def parse_lucid2_job(job):
         data = eval(job["conductor_metadata"]["metadata"][message].replace("'", '"'))
 
         if "date_time_end" in data and data["date_time_end"] != None:
-            start = parse(data["date_time_start"])
-            end = parse(data["date_time_end"])
-            return create_event(title, start, end)
-
-    return None
+            start = utc_to_pacific(parse(data["date_time_start"]))
+            end = utc_to_pacific(parse(data["date_time_end"]))
+            create_event(title, start, end, event_lists, sut_name)
 
 """"Get list of MI300 Jobs in past week from Lucid2"""
 
@@ -49,6 +47,5 @@ def get_lucid2_job_events(event_lists):
 
     for job in results_json:
         sut_name = job["conductor_metadata"]["sut_names"][0]
-        event = parse_lucid2_job(job)
-        event_lists_add_event(event_lists, event, sut_name)
+        parse_lucid2_job(job, event_lists, sut_name)
 
