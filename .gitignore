@@ -1,0 +1,5 @@
+.env
+*.png
+*.whl
+env/
+__pycache__/
