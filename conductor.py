@@ -14,9 +14,14 @@ def get_dcgpuperf_reservations():
 def parse_conductor_reservation(reservation, event_lists, sut_name):
     title = reservation.title
     print(title)
+    style = EventStyles.GREEN
+    for user in reservation.users:
+        team_names = [team.name for team in user.teams]
+        if ("perf" not in team_names) and ("DCGPUPerf" not in team_names):
+            style = EventStyles.RED
     start = utc_to_pacific(parse(reservation.date_time_start))
     end = utc_to_pacific(parse(reservation.date_time_end))
-    create_event(title, start, end, event_lists, sut_name, EventStyles.GREEN)
+    create_event(title, start, end, event_lists, sut_name, style)
 
 
 def get_conductor_reservation_events(event_lists):

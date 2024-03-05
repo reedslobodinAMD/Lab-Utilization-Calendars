@@ -33,7 +33,7 @@ def create_calendar(system_event_list):
 
     calendar = Calendar.build(config)
     calendar.add_events(system_event_list.events)
-    calendar.save( hostname + "_usage_" + now + ".png" )
+    calendar.save( "images/" + hostname + "/" + hostname + "_usage_" + now + ".png" )
 
 def main():
     event_lists = []
