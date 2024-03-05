@@ -1,10 +1,12 @@
 from datetime import *
 from dateutil.parser import *
 from calendar_view.core.event import Event
+from calendar_view.core.event import EventStyles
+
 import pytz
 
 timeframe = 7
-min_calendar_time_resolution = 531
+min_calendar_time_resolution = 540
 
 class SystemEventList:
 
@@ -22,24 +24,25 @@ class SystemEventList:
 def utc_to_pacific(utc_datetime):
     return utc_datetime.replace(tzinfo=timezone.utc).astimezone(pytz.timezone('US/Pacific'))
 
-def create_multi_day_event(title, start, end, event_lists, sut_name):
+def create_multi_day_event(title, start, end, event_lists, sut_name, style):
     mid_end = start.replace(hour=23,minute=59,second=59,microsecond=999000)
 
     print("start: " + str(start) + "    mid end: " + str(mid_end))
     print("mid start: " + str(mid_end+timedelta(milliseconds=2)) + "    end: " + str(end))
 
-    create_event(title, start, mid_end, event_lists, sut_name)
-    create_event(title, mid_end+timedelta(milliseconds=2), end, event_lists, sut_name)
+    create_event(title, start, mid_end, event_lists, sut_name, style)
+    create_event(title, mid_end+timedelta(milliseconds=2), end, event_lists, sut_name, style)
 
 
-def create_event(title, start, end, event_lists, sut_name):
+def create_event(title, start, end, event_lists, sut_name, style):
 
     timedelta = (end-start).total_seconds()
     if timedelta < min_calendar_time_resolution:
         return
     elif start.date() != end.date():
-        create_multi_day_event(title, start, end, event_lists, sut_name)
-    event = Event(title=title, day=start.date(), start=start.time(), end=end.time())
+        create_multi_day_event(title, start, end, event_lists, sut_name, style)
+        return
+    event = Event(title=title, day=start.date(), start=start.time(), end=end.time(), style=style)
     event_lists_add_event(event_lists, event, sut_name)
 
 def timeframe_days_ago():

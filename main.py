@@ -38,8 +38,8 @@ def create_calendar(system_event_list):
 def main():
     event_lists = []
     #get_lucid2_job_events(event_lists)
-    get_lucid2_job_events(event_lists)
     get_conductor_reservation_events(event_lists)
+    get_lucid2_job_events(event_lists)
     for system_event_list in event_lists:
         create_calendar(system_event_list)
 

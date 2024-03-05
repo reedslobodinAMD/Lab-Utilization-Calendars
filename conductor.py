@@ -16,7 +16,7 @@ def parse_conductor_reservation(reservation, event_lists, sut_name):
     print(title)
     start = utc_to_pacific(parse(reservation.date_time_start))
     end = utc_to_pacific(parse(reservation.date_time_end))
-    create_event(title, start, end, event_lists, sut_name)
+    create_event(title, start, end, event_lists, sut_name, EventStyles.GREEN)
 
 
 def get_conductor_reservation_events(event_lists):
