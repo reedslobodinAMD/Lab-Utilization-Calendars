@@ -27,8 +27,8 @@ def utc_to_pacific(utc_datetime):
 def create_multi_day_event(title, start, end, event_lists, sut_name, style):
     mid_end = start.replace(hour=23,minute=59,second=59,microsecond=999000)
 
-    print("start: " + str(start) + "    mid end: " + str(mid_end))
-    print("mid start: " + str(mid_end+timedelta(milliseconds=2)) + "    end: " + str(end))
+    #print("start: " + str(start) + "    mid end: " + str(mid_end))
+    #print("mid start: " + str(mid_end+timedelta(milliseconds=2)) + "    end: " + str(end))
 
     create_event(title, start, mid_end, event_lists, sut_name, style)
     create_event(title, mid_end+timedelta(milliseconds=2), end, event_lists, sut_name, style)
@@ -55,15 +55,13 @@ def event_lists_add_event(event_lists, event, sut_name):
         print("\n\n\n\nLSADJLSKDJFKLSJDFLKJSDKLFJLKSDJF\n\n\n\n")
         return
 
-    #print(sut_name)
+    print(sut_name)
     #print("event start:" + str(event.start_time) + " event end: " + str(event.end_time))
-    found = False
     for system_event_list in event_lists:
-            if system_event_list.hostname == sut_name:
-                system_event_list.addEvent(event)
-                found = True
+        if system_event_list.hostname == sut_name or system_event_list.hostname == sut_name + ".gpuperf":
+            system_event_list.addEvent(event)
+            return
 
-    if not found:
-        system_event_list = SystemEventList(sut_name)
-        system_event_list.addEvent(event)
-        event_lists.append(system_event_list)
+    system_event_list = SystemEventList(sut_name)
+    system_event_list.addEvent(event)
+    event_lists.append(system_event_list)

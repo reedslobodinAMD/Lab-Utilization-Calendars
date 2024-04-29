@@ -8,7 +8,7 @@ hour_height = 200
 
 def create_calendar(system_event_list):
     style.hour_height = hour_height
-
+    style.event_title_font = style.image_font(50)
     now = datetime.now(pytz.timezone('US/Pacific'))
     timeframe_days_ago = str((now - timedelta(days=timeframe)).date())
     now = str(now.date())
@@ -23,10 +23,10 @@ def create_calendar(system_event_list):
         show_year=False,
         legend=False,
     )
-    
-    for event in system_event_list.events:
-        print(event.title)
-        print("start: " + str(event.start_time) + "      end: " + str(event.end_time))
+    print(hostname) 
+    #for event in system_event_list.events:
+        #print(event.title)
+        #print("start: " + str(event.start_time) + "      end: " + str(event.end_time))
         #delta = datetime.strptime(str(event.end_time), "%H:%M:%S") - datetime.strptime(str(event.start_time), "%H:%M:%S")
         #print("timedelta: " + str(delta.total_seconds()))
     
@@ -37,9 +37,9 @@ def create_calendar(system_event_list):
 
 def main():
     event_lists = []
-    #get_lucid2_job_events(event_lists)
-    get_conductor_reservation_events(event_lists)
     get_lucid2_job_events(event_lists)
+    get_conductor_reservation_events(event_lists)
+    #get_lucid2_job_events(event_lists)
     for system_event_list in event_lists:
         create_calendar(system_event_list)
 

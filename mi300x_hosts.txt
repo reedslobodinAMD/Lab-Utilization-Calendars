@@ -1,5 +1,7 @@
-banff-sc-cs40-05.dh170.dcgpu
-banff-1e707-e01-5.mkm.dcgpu
-banff-sc-cx40-14.dh170.dcgpu
+banff-1e707-e05-5.mkm.dcgpu
 splinter-1w300-f0-2a.mkm.dcgpu
-banff-sc-cs42-05.dh170.dcgpu
+banff-pla-u29-29.pla.dcgpu
+gpuperf-lab-79.gpuperf
+gpuperf-lab-80.gpuperf
+gpuperf-lab-81.gpuperf
+gpuperf-lab-82.gpuperf
