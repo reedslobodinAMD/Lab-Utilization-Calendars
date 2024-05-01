@@ -25,7 +25,7 @@ export BASE_IMAGE_PATH="/home/isvperf/mi300x_h100_usage_tool/images"
 
 #banff-1e707-e05-5
 
-image_path="$BASE_IMAGE_PATH/banff-1e707-e05-5.mkm.dcgpu"
+image_path="$BASE_IMAGE_PATH/banff-1e707-e05-5"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -35,7 +35,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #banff-1e707-c01-1
 
-image_path="$BASE_IMAGE_PATH/banff-1e707-c01-1.mkm.dcgpu"
+image_path="$BASE_IMAGE_PATH/banff-1e707-c01-1"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -45,27 +45,16 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #banff-pla-u29-29
 
-image_path="$BASE_IMAGE_PATH/banff-pla-u29-29.pla.dcgpu"
+image_path="$BASE_IMAGE_PATH/banff-pla-u29-29"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
 curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_API_KEY" -F "file=@$filename" \
         -X POST "$CONFLUENCE_URL/child/attachment/$BANFF_PLA_U29_29_IMAGE_ID/data"
 
-
-#splinter-1w300-f0-2a
-
-image_path="$BASE_IMAGE_PATH/splinter-1w300-f0-2a.mkm.dcgpu"
-filename="$image_path/$(ls -Art $image_path | tail -n 1)"
-echo $filename
-
-curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_API_KEY" -F "file=@$filename" \
-	-X POST "$CONFLUENCE_URL/child/attachment/$SPLINTER_IMAGE_ID/data"
-
-
 #pp-126-032b
 
-image_path="$BASE_IMAGE_PATH/pp-126-032b.aus.dcgpu"
+image_path="$BASE_IMAGE_PATH/pp-126-032b"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -74,7 +63,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #pp-128-a6-1
 
-image_path="$BASE_IMAGE_PATH/pp-128-a6-1.aus.dcgpu"
+image_path="$BASE_IMAGE_PATH/pp-128-a6-1"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -83,7 +72,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #pp-128-b5-4
 
-image_path="$BASE_IMAGE_PATH/pp-128-b5-4.aus.dcgpu"
+image_path="$BASE_IMAGE_PATH/pp-128-b5-4"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -92,7 +81,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #ppac-1e707-a05-6
 
-image_path="$BASE_IMAGE_PATH/ppac-1e707-a05-6.mkm.dcgpu"
+image_path="$BASE_IMAGE_PATH/ppac-1e707-a05-6"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -101,7 +90,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #ppac-1e707-a03-1
 
-image_path="$BASE_IMAGE_PATH/ppac-1e707-a03-1.mkm.dcgpu"
+image_path="$BASE_IMAGE_PATH/ppac-1e707-a03-1"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -110,7 +99,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #sh5-126-b3-1
 
-image_path="$BASE_IMAGE_PATH/sh5-126-b3-1.aus.dcgpu"
+image_path="$BASE_IMAGE_PATH/sh5-126-b3-1"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -119,7 +108,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #gpuperf-lab-72
 
-image_path="$BASE_IMAGE_PATH/gpuperf-lab-72.gpuperf"
+image_path="$BASE_IMAGE_PATH/gpuperf-lab-72"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -128,7 +117,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #gpuperf-lab-73
 
-image_path="$BASE_IMAGE_PATH/gpuperf-lab-73.gpuperf"
+image_path="$BASE_IMAGE_PATH/gpuperf-lab-73"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -138,7 +127,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #gpuperf-lab-79
 
-image_path="$BASE_IMAGE_PATH/gpuperf-lab-79.gpuperf"
+image_path="$BASE_IMAGE_PATH/gpuperf-lab-79"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -148,7 +137,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #gpuperf-lab-80
 
-image_path="$BASE_IMAGE_PATH/gpuperf-lab-80.gpuperf"
+image_path="$BASE_IMAGE_PATH/gpuperf-lab-80"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -158,7 +147,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #gpuperf-lab-81
 
-image_path="$BASE_IMAGE_PATH/gpuperf-lab-81.gpuperf"
+image_path="$BASE_IMAGE_PATH/gpuperf-lab-81"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 
@@ -168,7 +157,7 @@ curl -k -H "X-Atlassian-Token: nocheck" -H "Authorization: Bearer $CONFLUENCE_AP
 
 #gpuperf-lab-82
 
-image_path="$BASE_IMAGE_PATH/gpuperf-lab-82.gpuperf"
+image_path="$BASE_IMAGE_PATH/gpuperf-lab-82"
 filename="$image_path/$(ls -Art $image_path | tail -n 1)"
 echo $filename
 

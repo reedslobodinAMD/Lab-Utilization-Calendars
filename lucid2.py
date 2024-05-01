@@ -32,11 +32,12 @@ def parse_lucid2_job(job, event_lists, sut_name):
         data = eval(job["conductor_metadata"]["metadata"][message].replace("'", '"'))
 
         if "date_time_end" in data and data["date_time_end"] != None:
+
             start = utc_to_pacific(parse(data["date_time_start"]))
             end = utc_to_pacific(parse(data["date_time_end"]))
             create_event(title, start, end, event_lists, sut_name, EventStyles.BLUE)
 
-""""Get list of Jobs in past week from Lucid2"""
+"""Get list of Jobs in past week from Lucid2"""
 
 def get_lucid2_job_events(event_lists):
     hosts = get_lucid_hosts()

@@ -1,7 +1,15 @@
+banff-1e707-c01-1.mkm.dcgpu
+banff-1e707-c01-1
 banff-1e707-e05-5.mkm.dcgpu
-splinter-1w300-f0-2a.mkm.dcgpu
+banff-1e707-e05-5
 banff-pla-u29-29.pla.dcgpu
+banff-pla-u29-29
 gpuperf-lab-79.gpuperf
+gpuperf-lab-79
 gpuperf-lab-80.gpuperf
+gpuperf-lab-80
 gpuperf-lab-81.gpuperf
+gpuperf-lab-81
 gpuperf-lab-82.gpuperf
+gpuperf-lab-82
+gpuperf-lab-82

@@ -23,7 +23,9 @@ def create_calendar(system_event_list):
         show_year=False,
         legend=False,
     )
-    print(hostname) 
+    if(hostname == "ppac-1e707-a03-1.mkm.dcgpu"):
+        print("\n\nAKFHAKSJHFJKALSHF\n\n")
+    #print(hostname) 
     #for event in system_event_list.events:
         #print(event.title)
         #print("start: " + str(event.start_time) + "      end: " + str(event.end_time))

@@ -6,7 +6,8 @@ from calendar_view.core.event import EventStyles
 import pytz
 
 timeframe = 7
-min_calendar_time_resolution = 540
+#540
+min_calendar_time_resolution = 530
 
 class SystemEventList:
 
@@ -35,10 +36,14 @@ def create_multi_day_event(title, start, end, event_lists, sut_name, style):
 
 
 def create_event(title, start, end, event_lists, sut_name, style):
-
+    
     timedelta = (end-start).total_seconds()
     if timedelta < min_calendar_time_resolution:
         return
+    
+    if(sut_name == "ppac-1e707-a03-1.mkm.dcgpu"):
+        print("\n\ngotem\n\n")
+
     elif start.date() != end.date():
         create_multi_day_event(title, start, end, event_lists, sut_name, style)
         return
@@ -55,10 +60,16 @@ def event_lists_add_event(event_lists, event, sut_name):
         print("\n\n\n\nLSADJLSKDJFKLSJDFLKJSDKLFJLKSDJF\n\n\n\n")
         return
 
-    print(sut_name)
+
+    sut_name=sut_name.split('.')[0]
+
+    if(sut_name == "ppac-1e707-a03-1"):
+        print("\n\n\nNOW HERE\n\n\n")
+
+    #print(sut_name)
     #print("event start:" + str(event.start_time) + " event end: " + str(event.end_time))
     for system_event_list in event_lists:
-        if system_event_list.hostname == sut_name or system_event_list.hostname == sut_name + ".gpuperf":
+        if system_event_list.hostname == sut_name:
             system_event_list.addEvent(event)
             return
 

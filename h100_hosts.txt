@@ -1,2 +1,5 @@
 gpuperf-lab-72.gpuperf
+gpuperf-lab-72
 gpuperf-lab-73.gpuperf
+gpuperf-lab-73
+gpuperf-lab-73
