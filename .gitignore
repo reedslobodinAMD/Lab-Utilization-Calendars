@@ -3,3 +3,6 @@
 *.whl
 env/
 __pycache__/
+html/
+images/
+usage_webpage/
