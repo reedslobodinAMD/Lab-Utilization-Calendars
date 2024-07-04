@@ -1,5 +1,5 @@
 #!/bin/bash
-cd /home/isvperf/mi300x_h100_usage_tool
+#cd /home/isvperf/mi300x_h100_usage_tool
 source env/bin/activate
 source .env
 #./trash_disposal.sh

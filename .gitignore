@@ -5,4 +5,4 @@ env/
 __pycache__/
 html/
 images/
-usage_webpage/
+usage_webpage/usage_webpage/views/plotly*
